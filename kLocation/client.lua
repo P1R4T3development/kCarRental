@@ -78,10 +78,10 @@ function SpawnVehicule(choixvehicule)
 			RequestModel(ModelVehicule)
 			Citizen.Wait(0)
 		end
-	local x, y, z = table.unpack(GetEntityCoords(GetPlayerPed(-1), false))
+	local x, y, z = table.unpack(GetEntityCoords(PlayerPedId(), false))
 	local SpawnVehicule = CreateVehicle(ModelVehicule, x  , y  , z , 0.0, true, false)
 	SetVehicleNumberPlateText(SpawnVehicule, " kLoca ")
-	TaskWarpPedIntoVehicle(GetPlayerPed(-1),SpawnVehicule,-1)
+	TaskWarpPedIntoVehicle(PlayerPedId(),SpawnVehicule,-1)
 end
 
 Citizen.CreateThread(function()
@@ -121,7 +121,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 	Citizen.Wait(0)		
-        local coords = GetEntityCoords(GetPlayerPed(-1))
+        local coords = GetEntityCoords(PlayerPedId())
         local PedinVehicle = IsPedSittingInAnyVehicle(PlayerPedId())
 		local JoueurDansLaZone = false
 		
